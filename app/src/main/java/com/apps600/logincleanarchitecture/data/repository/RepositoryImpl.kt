@@ -9,8 +9,9 @@ import kotlinx.coroutines.withContext
 import okhttp3.ResponseBody
 import org.json.JSONObject
 import retrofit2.Response
+import javax.inject.Inject
 
-class RepositoryImpl(
+class RepositoryImpl @Inject constructor(
     private val apiService: ApiService, private val ioDispatcher: CoroutineDispatcher
 ) : Repository {
 

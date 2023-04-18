@@ -7,12 +7,11 @@ import com.apps600.logincleanarchitecture.domain.repository.Repository
 import com.google.gson.Gson
 import org.json.JSONObject
 import retrofit2.Response
+import javax.inject.Inject
 
-class LoginUseCase(private val repository: Repository) {
+class LoginUseCase @Inject constructor(private val repository: Repository) {
 
-    suspend operator fun invoke(): String {
-
-        val user = User("kminchelle", "0lelplR")
+    suspend fun doLogin(user: User): String {
 
         return if (repository.login(user).isSuccessful) {
             repository.login(user).body()?.token!!
@@ -20,10 +19,9 @@ class LoginUseCase(private val repository: Repository) {
             val json = JSONObject(repository.login(user).errorBody()!!.charStream().readText())
             val errorResponseObject = Gson().fromJson(json.toString(), LoginErrorModel::class.java)
 
-           // jsonObj.toString()
+            // jsonObj.toString()
             errorResponseObject.message
         }
-
 
     }
 }

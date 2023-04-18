@@ -5,6 +5,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.apps600.logincleanarchitecture.databinding.ActivityMainBinding
+import com.apps600.logincleanarchitecture.domain.entity.User
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -20,7 +21,8 @@ class MainActivity : AppCompatActivity() {
 
         binding.tvLogin.setOnClickListener {
             lifecycleScope.launch {
-                viewModel.login()
+                val user = User("kminchelle", "0lelplR")
+                viewModel.login(user)
             }
         }
     }
