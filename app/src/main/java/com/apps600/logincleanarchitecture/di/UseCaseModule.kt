@@ -11,8 +11,8 @@ import dagger.hilt.components.SingletonComponent
 @InstallIn(SingletonComponent::class)
 object UseCaseModule {
 
-    @Provides
-    fun provideLoginUseCase(repository: Repository): LoginUseCase {
-        return LoginUseCase(repository)
-    }
+//    @Provides
+//    fun provideLoginUseCase(repository: Repository): LoginUseCase {
+//        return LoginUseCase(repository)
+//    }
 }

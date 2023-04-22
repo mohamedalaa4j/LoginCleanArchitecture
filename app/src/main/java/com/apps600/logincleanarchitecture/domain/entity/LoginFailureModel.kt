@@ -1,5 +1,5 @@
 package com.apps600.logincleanarchitecture.domain.entity
 
-data class LoginErrorModel(
+data class LoginFailureModel(
     val message: String
 )
